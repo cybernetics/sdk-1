@@ -43,7 +43,7 @@ namespace Microsoft.NET.Build.Tests
     }");
 
                 var buildCommand = new BuildCommand(testAsset);
-                var result = buildCommand.Execute($"/p:BuildingInsideVisualStudio={runningInVS}", $"/bl:C:/code/binlogs/binlog{runningInVS}.binlog")
+                var result = buildCommand.Execute($"/p:BuildingInsideVisualStudio={runningInVS}", $"/bl:binlog{runningInVS}.binlog")
                     .Should()
                     .Fail();
                 var warningString = "warning : Unable to locate the .NET SDK as specified by global.json, please check that the specified version is installed.";
