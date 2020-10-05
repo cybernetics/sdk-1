@@ -151,7 +151,7 @@ namespace Microsoft.NET.TestFramework
                 string sdksPath = Path.Combine(DotNetRoot, "sdk", SdkVersion, "Sdks");
 
                 //  Use stage 2 MSBuild SDK resolver
-                command.Environment["MSBUILDADDITIONALSDKRESOLVERSFOLDER"] = SdkResolverPath;
+                command.Environment["MSBUILDADDITIONALSDKRESOLVERSFOLDER"] = SdkResolverPath; // TODO need to be set before this?
 
                 //  Avoid using stage 0 dotnet install dir
                 command.Environment["DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR"] = "";
@@ -257,15 +257,6 @@ namespace Microsoft.NET.TestFramework
             }
 
             var ret = new ToolsetInfo(dotnetRoot);
-            
-            // if (!string.IsNullOrWhiteSpace(commandLine.MSBuildSDKsPath))
-            // {
-            //     ret.SdksPath = commandLine.MSBuildSDKsPath;
-            // }
-            // else if (repoRoot != null)
-            // {
-            //     ret.SdksPath = Path.Combine(repoArtifactsDir, "bin", configuration, "Sdks");
-            // }
 
             if (!string.IsNullOrEmpty(commandLine.FullFrameworkMSBuildPath))
             {
@@ -275,6 +266,7 @@ namespace Microsoft.NET.TestFramework
             {
                 ret.FullFrameworkMSBuildPath = ResolveCommand("MSBuild");
             }
+            ret.FullFrameworkMSBuildPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\msbuild.exe"; // TODO 
 
             if (repoRoot != null && ret.ShouldUseFullFrameworkMSBuild)
             {
