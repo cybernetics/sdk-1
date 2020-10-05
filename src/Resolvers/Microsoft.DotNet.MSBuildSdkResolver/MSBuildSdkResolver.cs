@@ -50,6 +50,8 @@ namespace Microsoft.DotNet.MSBuildSdkResolver
 
         public override SdkResult Resolve(SdkReference sdkReference, SdkResolverContext context, SdkResultFactory factory)
         {
+            context.Logger.LogMessage("Using newly built resolver", MessageImportance.High);
+
             string msbuildSdksDir = null;
             string netcoreSdkVersion = null;
             IDictionary<string, string> propertiesToAdd = null;
@@ -58,24 +60,35 @@ namespace Microsoft.DotNet.MSBuildSdkResolver
 
             if (context.State is CachedResult priorResult)
             {
+                context.Logger.LogMessage($"Using cached result: {priorResult.MSBuildSdksDir}", MessageImportance.High);
                 msbuildSdksDir = priorResult.MSBuildSdksDir;
                 netcoreSdkVersion = priorResult.NETCoreSdkVersion;
             }
 
             if (msbuildSdksDir == null)
             {
+
                 // These are overrides that are used to force the resolved SDK tasks and targets to come from a given
                 // base directory and report a given version to msbuild (which may be null if unknown. One key use case
                 // for this is to test SDK tasks and targets without deploying them inside the .NET Core SDK.
                 msbuildSdksDir = _getEnvironmentVariable("DOTNET_MSBUILD_SDK_RESOLVER_SDKS_DIR");
                 netcoreSdkVersion = _getEnvironmentVariable("DOTNET_MSBUILD_SDK_RESOLVER_SDKS_VER");
+
+                context.Logger.LogMessage($"Setting overrides {msbuildSdksDir} {netcoreSdkVersion}", MessageImportance.High);
             }
 
             if (msbuildSdksDir == null)
             {
+                context.Logger.LogMessage($"Sdks dir is null", MessageImportance.High);
                 string dotnetExeDir = _netCoreSdkResolver.GetDotnetExeDirectory();
+
+                context.Logger.LogMessage($"Dotnet exe dir: {dotnetExeDir}", MessageImportance.High);
                 string globalJsonStartDir = Path.GetDirectoryName(context.SolutionFilePath ?? context.ProjectFilePath);
+
+                context.Logger.LogMessage($"GlobalJson start dir: {globalJsonStartDir}", MessageImportance.High);
                 var resolverResult = _netCoreSdkResolver.ResolveNETCoreSdkDirectory(globalJsonStartDir, context.MSBuildVersion, context.IsRunningInVisualStudio, dotnetExeDir);
+
+                context.Logger.LogMessage($"Resolver result: {resolverResult.ResolvedSdkDirectory} {resolverResult.FailedToResolveSDKSpecifiedInGlobalJson}", MessageImportance.High);
 
                 if (resolverResult.ResolvedSdkDirectory == null)
                 {
