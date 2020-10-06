@@ -266,7 +266,7 @@ namespace Microsoft.NET.TestFramework
             {
                 ret.FullFrameworkMSBuildPath = ResolveCommand("MSBuild");
             }
-            ret.FullFrameworkMSBuildPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\msbuild.exe"; // TODO 
+            //ret.FullFrameworkMSBuildPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\msbuild.exe"; // TODO 
 
             if (repoRoot != null && ret.ShouldUseFullFrameworkMSBuild)
             {
@@ -279,7 +279,7 @@ namespace Microsoft.NET.TestFramework
             if (ret.ShouldUseFullFrameworkMSBuild)
             {
                 // Find path to MSBuildSdkResolver for full framework
-                ret.SdkResolverPath = Path.Combine(repoArtifactsDir, "bin", "Microsoft.DotNet.MSBuildSdkResolver", configuration, "net472", "Resolver");
+                ret.SdkResolverPath = Path.Combine(repoArtifactsDir, "bin", "Microsoft.DotNet.MSBuildSdkResolver", configuration, "net472", "SdkResolvers");
             }
 
             if (repoRoot != null)

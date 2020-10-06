@@ -23,6 +23,9 @@ namespace Microsoft.NET.Build.Tests
         [InlineData(false)]
         public void It_fails_build_on_failed_sdk_resolution(bool runningInVS)
         {
+            string artifactsDir = Path.Combine(TestContext.GetRepoRoot(), "artifacts", "bin");
+            string filestructure = string.Join('\n', Directory.GetFiles(artifactsDir, "*", new EnumerationOptions() { RecurseSubdirectories = true }));
+            File.Exists(TestContext.Current.ToolsetUnderTest.SdkResolverPath).Should().BeTrue($"{filestructure}");
             var prevIncludeDefault = Environment.GetEnvironmentVariable("MSBUILDINCLUDEDEFAULTSDKRESOLVER");
             try
             {
