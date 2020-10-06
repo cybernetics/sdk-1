@@ -25,7 +25,7 @@ namespace Microsoft.DotNet.Tests
         {
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void VersionCommandDisplaysCorrectVersion()
         {
             var assemblyMetadata = typeof(GivenDotnetSdk).Assembly

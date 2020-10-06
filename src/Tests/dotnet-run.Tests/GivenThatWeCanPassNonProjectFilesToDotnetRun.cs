@@ -18,7 +18,7 @@ namespace Microsoft.DotNet.Cli.Run.Tests
         {
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ItFailsWithAnAppropriateErrorMessage()
         {
             var projectDirectory = _testAssetsManager

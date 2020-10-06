@@ -19,7 +19,7 @@ namespace Microsoft.NET.Build.Tests
         {
         }
 
-        [FullMSBuildOnlyTheory()]
+        [FullMSBuildOnlyTheory(Skip = "")]
         [InlineData(true)]
         [InlineData(false)]
         public void COMReferenceBuildsAndRuns(bool embedInteropTypes)
@@ -69,7 +69,7 @@ namespace Microsoft.NET.Build.Tests
             runCommand.Execute().Should().Pass();
         }
 
-        [FullMSBuildOnlyFact]
+        [FullMSBuildOnlyFact(Skip ="")]
         public void COMReferenceProperlyPublish()
         {
             var targetFramework = "netcoreapp3.0";

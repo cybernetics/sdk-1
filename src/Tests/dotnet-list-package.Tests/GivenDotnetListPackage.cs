@@ -19,7 +19,7 @@ namespace Microsoft.DotNet.Cli.List.Package.Tests
         {
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ItShowsCoreOutputOnMinimalVerbosity()
         {
             var testAssetName = "NewtonSoftDependentProject";
@@ -43,7 +43,7 @@ namespace Microsoft.DotNet.Cli.List.Package.Tests
                 .And.HaveStdOutContaining("NewtonSoft.Json");
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void RequestedAndResolvedVersionsMatch()
         {
             var testAssetName = "TestAppSimple";
@@ -75,7 +75,7 @@ namespace Microsoft.DotNet.Cli.List.Package.Tests
                 .And.HaveStdOutContainingIgnoreSpaces(packageName+packageVersion+packageVersion);
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ItListsAutoReferencedPackages()
         {
             var testAssetName = "TestAppSimple";
@@ -108,7 +108,7 @@ namespace Microsoft.DotNet.Cli.List.Package.Tests
             }
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ItRunOnSolution()
         {
             var sln = "TestAppWithSlnAndSolutionFolders";
@@ -132,7 +132,7 @@ namespace Microsoft.DotNet.Cli.List.Package.Tests
                 .And.HaveStdOutContainingIgnoreSpaces("NewtonSoft.Json");
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void AssetsPathExistsButNotRestored()
         {
             var testAsset = "NewtonSoftDependentProject";
@@ -149,7 +149,7 @@ namespace Microsoft.DotNet.Cli.List.Package.Tests
                 .And.HaveStdErr();
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ItListsTransitivePackage()
         {
             var testAssetName = "NewtonSoftDependentProject";
@@ -181,7 +181,7 @@ namespace Microsoft.DotNet.Cli.List.Package.Tests
                 .And.HaveStdOutContaining("System.IO.FileSystem");
         }
 
-        [Theory]
+        [Theory(Skip ="")]
         [InlineData("", "[net451]", null)]
         [InlineData("", "[netcoreapp3.1]", null)]
         [InlineData("--framework netcoreapp3.1 --framework net451", "[net451]", null)]
@@ -226,7 +226,7 @@ namespace Microsoft.DotNet.Cli.List.Package.Tests
             
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ItDoesNotAcceptInvalidFramework()
         {
             var testAssetName = "MSBuildAppWithMultipleFrameworks";
@@ -247,7 +247,7 @@ namespace Microsoft.DotNet.Cli.List.Package.Tests
                 .Fail();
         }
 
-        [FullMSBuildOnlyFact]
+        [FullMSBuildOnlyFact(Skip ="")]
         public void ItListsFSharpProject()
         {
             var testAssetName = "FSharpTestAppSimple";

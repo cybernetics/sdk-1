@@ -42,7 +42,7 @@ namespace Microsoft.NET.Build.Tests
                 .Pass();
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void DuplicateRuntimePackCausesFailure()
         {
             var testProject = new TestProject()
@@ -70,7 +70,7 @@ namespace Microsoft.NET.Build.Tests
                 .HaveStdOutContaining("NETSDK1133");
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void RuntimePackWithLabelIsSelected()
         {
             var testProject = new TestProject()
@@ -137,7 +137,7 @@ namespace Microsoft.NET.Build.Tests
             });
         }
 
-       [WindowsOnlyFact]
+       [WindowsOnlyFact(Skip ="")]
         public void ItCantPublishArm64Wpf()
         {
             var testDirectory = _testAssetsManager.CreateTestDirectory().Path;

@@ -13,14 +13,14 @@ namespace Microsoft.DotNet.Tests.Commands
     {
         public CommandIntegrationTests(ITestOutputHelper log) : base(log) {}
 
-        [Fact]
+        [Fact(Skip ="")]
         public void GivenNoArgumentsProvided()
         {
             var cmd = new DotnetCommand(Log).Execute(string.Empty);
             cmd.StdErr.Should().BeEmpty();
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void GivenOnlyArgumentProvidedIsDiagnosticsFlag()
         {
             var cmd = new DotnetCommand(Log).Execute("-d");

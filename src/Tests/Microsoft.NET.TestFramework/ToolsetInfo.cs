@@ -266,7 +266,7 @@ namespace Microsoft.NET.TestFramework
             {
                 ret.FullFrameworkMSBuildPath = ResolveCommand("MSBuild");
             }
-            //ret.FullFrameworkMSBuildPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\msbuild.exe"; // TODO 
+            ret.FullFrameworkMSBuildPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\msbuild.exe"; // TODO 
 
             if (repoRoot != null && ret.ShouldUseFullFrameworkMSBuild)
             {

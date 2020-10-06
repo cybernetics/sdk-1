@@ -24,7 +24,7 @@ namespace Microsoft.DotNet.Cli.Utils.Tests
         {
         }
 
-        [WindowsOnlyFact]
+        [WindowsOnlyFact(Skip ="")]
         public void ItShouldDetectFileWithMarkOfTheWeb()
         {
             var testFile = Path.Combine(_testAssetsManager.CreateTestDirectory().Path, Path.GetRandomFileName());
@@ -46,7 +46,7 @@ namespace Microsoft.DotNet.Cli.Utils.Tests
             }
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void WhenThereIsNoFileItReturnsFalse()
         {
             var testFile = Path.Combine(_testAssetsManager.CreateTestDirectory().Path, Path.GetRandomFileName());
@@ -54,7 +54,7 @@ namespace Microsoft.DotNet.Cli.Utils.Tests
             new DangerousFileDetector().IsDangerous(testFile).Should().BeFalse();
         }
 
-        [UnixOnlyFact]
+        [UnixOnlyFact(Skip ="")]
         public void WhenRunOnNonWindowsReturnFalse()
         {
             var testFile = Path.Combine(_testAssetsManager.CreateTestDirectory().Path, Path.GetRandomFileName());

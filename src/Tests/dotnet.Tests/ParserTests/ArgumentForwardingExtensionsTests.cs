@@ -13,7 +13,7 @@ namespace Microsoft.DotNet.Tests.ParserTests
 {
     public class ArgumentForwardingExtensionsTests
     {
-        [Fact]
+        [Fact(Skip ="")]
         public void AnOutgoingCommandLineCanBeGeneratedBasedOnAParseResult()
         {
             var command = Command("the-command", "",
@@ -32,7 +32,7 @@ namespace Microsoft.DotNet.Tests.ParserTests
                 .BeEquivalentTo("/i:123", "/s:true");
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void MultipleArgumentsCanBeJoinedWhenForwarding()
         {
             var command = Command("the-command", "",
@@ -48,7 +48,7 @@ namespace Microsoft.DotNet.Tests.ParserTests
                 .BeEquivalentTo("/x:one&two");
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void AnArgumentCanBeForwardedAsIs()
         {
             var command = Command("the-command", "",

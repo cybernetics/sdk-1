@@ -22,7 +22,7 @@ namespace Microsoft.NET.Build.Tests
         {
         }
 
-        [Theory]
+        [Theory(Skip ="")]
         [InlineData("C#", "AppWithLibrary")]
         [InlineData("VB", "AppWithLibraryVB")]
         [InlineData("F#", "AppWithLibraryFS", Skip = "https://github.com/dotnet/coreclr/issues/27275")]

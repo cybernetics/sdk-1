@@ -14,7 +14,7 @@ namespace EndToEnd
         {
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ThenOneDotnetToolsCanBeCalled()
         {
             new DotnetCommand(Log)

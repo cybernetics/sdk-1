@@ -22,7 +22,7 @@ namespace Microsoft.DotNet.Tests
             _dotnetToolsCommandResolver = new DotnetToolsCommandResolver(dotnetToolPath);
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ItReturnsNullWhenCommandNameIsNull()
         {
             var commandResolverArguments = new CommandResolverArguments()
@@ -35,7 +35,7 @@ namespace Microsoft.DotNet.Tests
             result.Should().BeNull();
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ItReturnsNullWhenCommandNameDoesNotExistInProjectTools()
         {
             var commandResolverArguments = new CommandResolverArguments()
@@ -48,7 +48,7 @@ namespace Microsoft.DotNet.Tests
             result.Should().BeNull();
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void ItReturnsACommandSpec()
         {
             var commandResolverArguments = new CommandResolverArguments()

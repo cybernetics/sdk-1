@@ -17,7 +17,7 @@ namespace EndToEnd
         {
         }
 
-        [WindowsOnlyFact]
+        [WindowsOnlyFact(Skip ="")]
         public void ANET461ProjectCanReferenceANETStandardProject()
         {
             var _testInstance = _testAssetsManager.CopyTestAsset("NETFrameworkReferenceNETStandard20", testAssetSubdirectory: TestAssetSubdirectories.DesktopTestProjects)

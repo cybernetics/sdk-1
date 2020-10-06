@@ -20,7 +20,7 @@ namespace Microsoft.NET.Build.Tests
         {
         }
 
-        [Theory]
+        [Theory(Skip ="")]
         [InlineData(".NETCoreApp")]
         [InlineData(".NETStandard")]
         public void TheMaximumVersionsAreSupported(string targetFrameworkIdentifier)
@@ -66,7 +66,7 @@ namespace Microsoft.NET.Build.Tests
                 because: $"Microsoft.NET.SupportedTargetFrameworks.props should include an entry for {expectedTFM}");
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void TheSupportedTargetFrameworkListIsComposed()
         {
             var project = new TestProject

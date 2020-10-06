@@ -42,7 +42,7 @@ Commands:
         {
         }
 
-        [Theory]
+        [Theory(Skip ="")]
         [InlineData("--help")]
         [InlineData("-h")]
         public void WhenHelpOptionIsPassedItPrintsUsage(string helpArg)
@@ -52,7 +52,7 @@ Commands:
             cmd.StdOut.Should().BeVisuallyEquivalentToIfNotLocalized(HelpText);
         }
 
-        [Theory]
+        [Theory(Skip ="")]
         [InlineData("")]
         [InlineData("unknownCommandName")]
         public void WhenNoCommandIsPassedItPrintsError(string commandName)
@@ -64,7 +64,7 @@ Commands:
             cmd.StdOut.Should().BeVisuallyEquivalentToIfNotLocalized(RemoveCommandHelpText);
         }
 
-        [Fact]
+        [Fact(Skip ="")]
         public void WhenReferencedPackageIsPassedItGetsRemoved()
         {
             var projectDirectory = _testAssetsManager

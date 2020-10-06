@@ -27,7 +27,7 @@ Options:
         {
         }
 
-        [Theory]
+        [Theory(Skip ="")]
         [InlineData("--help")]
         [InlineData("-h")]
         [InlineData("-?")]
